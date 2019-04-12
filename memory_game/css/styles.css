@@ -87,22 +87,26 @@ footer {
 }
 #button {
 	background: #00A6B3;
-	border: solid 5px  #00A6B3;
+	border: solid 3px  #00A6B3;
+	border-radius: 10px;
 	font-size: 45px;
+	font-weight: 700;
+	padding: 5px;
 	width: 240px;	
 	float: right;
 	margin: 35px 0;
 }
 #score {
-	border: solid 5px  #00A6B3;
+	border: solid 3px  #00A6B3;
+	border-radius: 10px;
 	background: #F15B31;
 	font-size: 45px;
+	font-weight: 700;
+	padding: 5px;
 	margin: 35px 0;
-	width: 590px;
+	width: 570px;
 	float: left;
 }
 #button:hover {
-	background: #F15B31;
-	border: solid 5px #F15B31;
-	color: #00A6B3;
-}
+	background: #F15B31;	
+	}
