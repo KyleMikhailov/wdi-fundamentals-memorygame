@@ -12,7 +12,7 @@ var cards = [
 	{
 		rank: "king",
 		suit: "hearts",
-		cardImage: "imags/king-of-hearts.png"
+		cardImage: "images/king-of-hearts.png"
 	},
 	{
 		rank: "king",
@@ -25,23 +25,45 @@ var cardsInPlay = [];
 
 var checkForMatch = function () {
 if (cardsInPlay[0] === cardsInPlay[1]) {
-		console.log("You found a match!");
+		alert("You found a match!");
 	} else {
-		console.log("Sorry, try again.");
+		alert("Sorry, try again.");
 	}
 }
 
-var flipCard = function (cardId){
+var flipCard = function (){
+	var cardId = this.getAttribute("data-id");
 	console.log("User flipped " +  cards[cardId].rank)
 	cardsInPlay.push(cards[cardId].rank);
 	console.log(cards[cardId].cardImage);
 	console.log(cards[cardId].suit);
+	this.setAttribute("src", cards[cardId].cardImage);
+	
 
 if (cardsInPlay.length === 2) {
 	checkForMatch ();
 	}	
 }
 
-flipCard (2);
-flipCard (3);
+var createBoard = function () {
+	for (var i = 0; i < cards.length; i++){
+		var cardElement = document.createElement('img');
+		cardElement.setAttribute("src", "images/back.png");
+		cardElement.setAttribute("data-id", i);
+		cardElement.addEventListener('click', flipCard);
+		document.getElementById('game-board').appendChild(cardElement);
+	}
+}
 
+
+
+
+
+
+
+
+
+
+
+
+createBoard();
