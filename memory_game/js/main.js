@@ -20,15 +20,15 @@ var cards = [
 		cardImage: "images/king-of-diamonds.png"
 	}
 ];
+
 var score = 0;
 var cardsInPlay = [];
-document.getElementById('score').textContent = "Score : " + score;
 
 var checkForMatch = function () {
-if (cardsInPlay[0] === cardsInPlay[1]) {
-		alert("You found a match!");
+if (cardsInPlay[0] === cardsInPlay[1]) {	
 		score += 1;
 		document.getElementById('score').textContent = "Score : " + score;
+		alert("You found a match!");
 	} else {
 		alert("Sorry, try again.");
 	}
@@ -38,8 +38,7 @@ var flipCard = function (){
 	var cardId = this.getAttribute("data-id");
 	cardsInPlay.push(cards[cardId].rank);
 	this.setAttribute("src", cards[cardId].cardImage);
-	
-if (cardsInPlay.length === 2) {
+	if (cardsInPlay.length === 2) {
 	checkForMatch ();
 	}	
 }
@@ -52,6 +51,7 @@ var createBoard = function () {
 		cardElement.addEventListener('click', flipCard);
 		document.getElementById('game-board').appendChild(cardElement);
 	}
+	document.getElementById('score').textContent = "Score : " + score;
 }
 
 var resetBoard = function() {
